@@ -37,14 +37,17 @@ def createTable(db):
     conn.close()
 def dropTable(db):
     logging.info(f"Start dropTable to f{db}")
-    conn = sqlite3.connect(db)
-    cursor = conn.cursor()
-    cursor.execute("DROP TABLE Users")
-    cursor.execute("DROP TABLE Items")
-    cursor.execute("DROP TABLE Purchases")
-    conn.commit()
-    conn.close()
-    print("DROP TABLES SUCCESFULLLY")
+    try:
+        conn = sqlite3.connect(db)
+        cursor = conn.cursor()
+        cursor.execute("DROP TABLE Users")
+        cursor.execute("DROP TABLE Items")
+        cursor.execute("DROP TABLE Purchases")
+        conn.commit()
+        conn.close()
+        print("DROP TABLES SUCCESFULLLY")
+    except sqlite3.OperationalError as e:
+            logging.error(f"Ошибка удаления таблицы: {e}")
 def insertData(db):
     logging.info(f"Start insertData to f{db}")
     conn = sqlite3.connect(db)

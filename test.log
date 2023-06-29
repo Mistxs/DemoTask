@@ -1,0 +1,4 @@
+2023-06-30 00:46:35,888 - INFO - Start dropTable to ftest.db
+2023-06-30 00:48:07,775 - INFO - Start dropTable to ftest.db
+2023-06-30 00:48:07,780 - ERROR - Ошибка удаления таблицы: no such table: Users
+2023-06-30 00:48:07,785 - INFO - Start insertData to ftest.db
